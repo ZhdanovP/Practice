@@ -4,6 +4,7 @@
 #include "visitor.hpp"
 
 #include <cmath>
+#include <atomic>
 
 #define PI 3.14159265358979323846
 
@@ -33,7 +34,7 @@ public:
 
 private:
 
-	double m_currentArea;
+	std::atomic<double> m_currentArea;
 
 };
 
