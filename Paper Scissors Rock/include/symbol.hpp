@@ -19,8 +19,6 @@ public:
 	Symbol(const std::string name)
 		: m_symbol_name(name) {}
 
-	virtual ~Symbol() = 0;
-
 	std::string GetName() const {
 		return m_symbol_name;
 	}
@@ -34,7 +32,5 @@ protected:
 
 	std::string m_symbol_name;
 };
-
-Symbol::~Symbol() {}
 
 #endif  // SYMBOL_HPP

@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <stdexcept>
 
 class Player
 {
@@ -13,17 +14,22 @@ public:
 	Player(const std::string& name)
 		: m_name(name) {}
 
-	virtual ~Player() = 0;
+	void SetName(const std::string& name) {
+		m_name = name;
+	}
 
 	const std::string& GetName() const {
 		return m_name;
 	}
 
-	void SetSymbol(std::shared_ptr<Symbol> symbol) {
-		m_symbol = symbol;
+	void MakeChoose(std::function<std::shared_ptr<Symbol>()> method) {
+		m_symbol = method();
 	}
 
 	const Symbol& GetSymbol() const {
+		if (!m_symbol) {
+			throw std::runtime_error("Symbol for player wasn't created.");
+		}
 		return *m_symbol;
 	}
 
@@ -31,7 +37,5 @@ protected:
 	std::shared_ptr<Symbol> m_symbol;
 	std::string m_name;
 };
-
-Player::~Player() {}
 
 #endif  // PLAYER_HPP

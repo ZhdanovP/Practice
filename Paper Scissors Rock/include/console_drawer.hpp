@@ -56,27 +56,28 @@ public:
 		return name;
 	}
 
-	void ShowChoose(const std::shared_ptr<Player> first, const std::shared_ptr<Player> second) override {
+	void ShowChoose(const Player& first, const Player& second) override {
 		PrintInLoop(m_indent_length, '\t');
-		std::cout 	<< first->GetName() << ": "
-					<< first->GetSymbol().GetName() << "\n";
+		std::cout 	<< first.GetName() << ": "
+					<< first.GetSymbol().GetName() << "\n";
 		PrintInLoop(m_indent_length, '\t');
-		std::cout 	<< second->GetName() << ": "
-					<< second->GetSymbol().GetName() << "\n";
+		std::cout 	<< second.GetName() << ": "
+					<< second.GetSymbol().GetName() << "\n";
 	}
 
-	void PlayerChoose(std::shared_ptr<Player> player) override {
+	std::shared_ptr<Symbol> PlayerChoose() override {
 		PrintInLoop(m_indent_length, '\t');
         std::cout << "Enter your choice: ";
 		char input;
 		std::cin >> input;
 		if ('r' == input) {
-			player->SetSymbol(std::make_shared<Rock>());
+			return std::make_shared<Rock>();
 		} else if ('p' == input) {
-			player->SetSymbol(std::make_shared<Paper>());
+			return std::make_shared<Paper>();
 		} else if ('s' == input) {
-			player->SetSymbol(std::make_shared<Scissors>());
+			return std::make_shared<Scissors>();
 		}
+		return nullptr;
 	}
 
 	void Hurray() override {
@@ -108,6 +109,11 @@ public:
         std::cout << std::endl;
 
         return playmore != 'n';
+	}
+
+	void GoodByeScreen() override {
+		PrintInLoop(m_indent_length, '\t');
+		std::cout << "Goodbye!";
 	}
 
 private:

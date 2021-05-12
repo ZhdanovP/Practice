@@ -12,9 +12,9 @@ public:
 
 	virtual std::string GetPlayerName() = 0;
 
-	virtual void ShowChoose(const std::shared_ptr<Player>, const std::shared_ptr<Player>) = 0;
+	virtual void ShowChoose(const Player&, const Player&) = 0;
 
-	virtual void PlayerChoose(std::shared_ptr<Player> player) = 0;
+	virtual std::shared_ptr<Symbol> PlayerChoose() = 0;
 
 	virtual void Hurray() = 0;
 
@@ -23,6 +23,8 @@ public:
 	virtual void Tie() = 0;
 
 	virtual bool IsContinue() = 0;
+
+	virtual void GoodByeScreen() = 0;
 };
 
 #endif  // DRAWER_HPP
