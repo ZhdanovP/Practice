@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021, Pavel Zhdanov
+ * All rights reserved.
+ */
+
 #ifndef CONSOLE_DRAWER_HPP
 #define CONSOLE_DRAWER_HPP
 

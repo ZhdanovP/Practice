@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021, Pavel Zhdanov
+ * All rights reserved.
+ */
+
 #ifndef ROCK_HPP
 #define ROCK_HPP
 
