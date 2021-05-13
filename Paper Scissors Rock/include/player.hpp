@@ -11,27 +11,15 @@ class Player
 {
 public:
 
-	Player(const std::string& name)
-		: m_name(name) {}
+	Player(const std::string& name);
 
-	void SetName(const std::string& name) {
-		m_name = name;
-	}
+	void SetName(const std::string& name);
 
-	const std::string& GetName() const {
-		return m_name;
-	}
+	const std::string& GetName() const;
 
-	void MakeChoose(std::function<std::shared_ptr<Symbol>()> method) {
-		m_symbol = method();
-	}
+	void MakeChoose(std::function<std::shared_ptr<Symbol>()> method);
 
-	const Symbol& GetSymbol() const {
-		if (!m_symbol) {
-			throw std::runtime_error("Symbol for player wasn't created.");
-		}
-		return *m_symbol;
-	}
+	const Symbol& GetSymbol() const;
 
 protected:
 	std::shared_ptr<Symbol> m_symbol;

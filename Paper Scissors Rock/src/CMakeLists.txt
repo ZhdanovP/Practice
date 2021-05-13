@@ -1,6 +1,9 @@
 project(paperscissorsrock)
 
 set(SRC
+	controller.cpp
+	console_drawer.cpp
+	player.cpp
 	main.cpp
 )
 
